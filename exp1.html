@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Largest of Two Numbers</title>
+</head>
+<body>
+  <h3>Find the largest of two numbers</h3>
+  <input id="n1" type="text" placeholder="First number">
+  <input id="n2" type="text" placeholder="Second number">
+  <button id="check">Compare</button>
+  <div id="result" style="margin-top:8px;font-weight:bold"></div>
+
+  <script>
+    document.getElementById('check').addEventListener('click', () => {
+      const rawA = document.getElementById('n1').value.trim();
+      const rawB = document.getElementById('n2').value.trim();
+      const a = parseFloat(rawA);
+      const b = parseFloat(rawB);
+
+      const out = document.getElementById('result');
+      if (rawA === '' || rawB === '') {
+        out.textContent = 'Please enter both numbers.';
+        return;
+      }
+      if (isNaN(a) || isNaN(b)) {
+        out.textContent = 'Invalid number(s). Use digits like 12 or 3.5.';
+        return;
+      }
+      if (a > b) out.textContent = `${a} is larger than ${b}.`;
+      else if (b > a) out.textContent = `${b} is larger than ${a}.`;
+      else out.textContent = 'Both numbers are equal.';
+    });
+  </script>
+</body>
+</html>
